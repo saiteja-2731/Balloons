@@ -60,7 +60,7 @@ function updateScore(){
 }
 
 function startGame(){
-	restartGame();
+	restartGame();    // to delete all the exisiting balloons and score and initalise them to zero.
 	let timeout = 0;
 
 	let loop = setInterval(function(){
@@ -107,13 +107,15 @@ document.querySelector('.restart').addEventListener('click', function(){
 document.querySelector('.cancel').addEventListener('click', function(){
 	totalShadow.style.display = 'none';
 	restartGame();
-	document.querySelector('.start-game-window').style.display = 'block';
-	document.querySelector('.new_bg').pause();
+	document.querySelector('.start-game-window').style.display = 'block';  // display start window when users clicks cancel for restaring
+	document.querySelector('.new_bg').pause();  //pause the bg siund
+	document.querySelector('.score-block').style.display='none';
 });
 
-startBtn.addEventListener('click', function() {
-	startGame();
-	document.querySelector('.new_bg').play();
-	document.querySelector('.start-game-window').style.display = 'none';
+startBtn.addEventListener('click', function() {     // to start the game when pressed on start buttoncl~~
+	startGame();   
+	document.querySelector('.new_bg').play();   // start the bg music
+	document.querySelector('.start-game-window').style.display = 'none';  // hide start game window block
+	document.querySelector('.score-block').style.display='flex';
 });
 
